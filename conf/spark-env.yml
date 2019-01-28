@@ -70,7 +70,7 @@
 # ansible spark_master,spark_slaves -m shell -a 'cat /proc/cpuinfo| grep "processor"| wc -l'
 # ansible spark_master,spark_slaves -m shell -a "free" | grep 'Mem' | awk '{print int($2/1024/1024/1.25)}'
 
-SPARK_EXECUTOR_CORES: 5
-SPARK_EXECUTOR_MEMORY: 10g
-SPARK_WORKER_CORES: 5
-SPARK_WORKER_MEMORY: 10g
+SPARK_EXECUTOR_CORES: 2
+SPARK_EXECUTOR_MEMORY: 1g
+SPARK_WORKER_CORES: 2
+SPARK_WORKER_MEMORY: 2g

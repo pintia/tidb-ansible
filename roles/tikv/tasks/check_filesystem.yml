@@ -44,6 +44,7 @@
   when:
     - ext4_filesystem_alert is defined
     - ext4_filesystem_alert
+  ignore_errors: yes
 
 - name: Preflight check - Set fssystem_check_result fact
   set_fact:
