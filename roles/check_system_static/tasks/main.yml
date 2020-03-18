@@ -30,11 +30,11 @@
 - name: Clean epollexclusive script
   file: path={{ deploy_dir }}/epollexclusive state=absent
 
-- name: Preflight check - Fail when epollexclusive is unavailable
-  fail:
-    msg: "The current machine may be a docker virtual machine, and the corresponding physical machine operating system does not support epollexclusive"
-  when: epollexclusive_check.stdout.find("True") == -1
-  ignores_errors: True
+  # - name: Preflight check - Fail when epollexclusive is unavailable
+  #   fail:
+  #     msg: "The current machine may be a docker virtual machine, and the corresponding physical machine operating system does not support epollexclusive"
+  #   when: epollexclusive_check.stdout.find("True") == -1
+  #   ignores_errors: True
 
 - name: Deploy check_cpufreq script
   copy: src="{{ script_dir }}/check/check_cpufreq.py" dest="{{ deploy_dir }}/check_cpufreq.py" mode=0755
