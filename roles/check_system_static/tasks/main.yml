@@ -25,6 +25,7 @@
 - name: Preflight check - Check if the operating system supports EPOLLEXCLUSIVE
   shell: "{{ deploy_dir }}/epollexclusive"
   register: epollexclusive_check
+  ignore_errors: yes
 
 - name: Clean epollexclusive script
   file: path={{ deploy_dir }}/epollexclusive state=absent
@@ -33,6 +34,7 @@
   fail:
     msg: "The current machine may be a docker virtual machine, and the corresponding physical machine operating system does not support epollexclusive, please upgrade the Linux kernel (the minimum version is 3.10.0-386.el7)"
   when: epollexclusive_check.stdout.find("True") == -1
+  ignore_errors: yes
 
 - name: Deploy check_cpufreq script
   copy: src="{{ script_dir }}/check/check_cpufreq.py" dest="{{ deploy_dir }}/check_cpufreq.py" mode=0755
