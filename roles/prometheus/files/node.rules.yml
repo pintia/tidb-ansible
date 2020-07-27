@@ -37,17 +37,17 @@ groups:
       value: '{{ $value }}'
       summary: disk readonly
 
-  - alert: NODE_memory_used_more_than_80%
-    expr: (((node_memory_MemTotal_bytes-node_memory_MemFree_bytes-node_memory_Cached_bytes)/(node_memory_MemTotal_bytes)*100)) >= 80
+  - alert: NODE_memory_used_more_than_95%
+    expr: (((node_memory_MemTotal_bytes-node_memory_MemFree_bytes-node_memory_Cached_bytes)/(node_memory_MemTotal_bytes)*100)) >= 95
     for: 3m
     labels:
       env: ENV_LABELS_ENV
       level: critical
-      expr: (((node_memory_MemTotal_bytes-node_memory_MemFree_bytes-node_memory_Cached_bytes)/(node_memory_MemTotal_bytes)*100)) >= 80
+      expr: (((node_memory_MemTotal_bytes-node_memory_MemFree_bytes-node_memory_Cached_bytes)/(node_memory_MemTotal_bytes)*100)) >= 95
     annotations:
       description: 'cluster: ENV_LABELS_ENV, instance: {{ $labels.instance }}, values: {{ $value }}'
       value: '{{ $value }}'
-      summary: memory used more than 80%
+      summary: memory used more than 95%
 
   - alert: NODE_node_overload
     expr: (node_load5 / count without (cpu, mode) (node_cpu_seconds_total{mode="system"}))  > 1
