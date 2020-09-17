@@ -19,11 +19,11 @@
     - spark_master
   tasks:
     - name: start spark master
-      shell: sh {{ deploy_dir }}/spark/sbin/start-master.sh
+      shell: bash {{ deploy_dir }}/spark/sbin/start-master.sh
 
 - hosts: spark_slaves
   tags:
     - spark_slaves
   tasks:
     - name: start spark slave
-      shell: sh {{ deploy_dir }}/spark/sbin/start-slave.sh
+      shell: bash {{ deploy_dir }}/spark/sbin/start-slave.sh
