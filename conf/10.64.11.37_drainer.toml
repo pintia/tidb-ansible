@@ -69,7 +69,7 @@ replicate-do-db = ["patest"]
 [syncer.to]
 # only need config one of zookeeper-addrs and kafka-addrs, will get kafka address if zookeeper-addrs is configed.
 # zookeeper-addrs = "127.0.0.1:2181"
-kafka-addrs = "c-8k92xq07z9.kafka.cn-east-1.internal:9092"
+kafka-addrs = "c-ygj31joqz6.kafka.cn-east-1.internal:9092"
 kafka-version = "1.1.1"
 kafka-max-messages = 1024
 
